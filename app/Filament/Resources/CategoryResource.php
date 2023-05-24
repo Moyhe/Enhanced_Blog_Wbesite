@@ -42,8 +42,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('title')->searchable(['title', 'body'])->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')->sortable()
                     ->dateTime(),
 
             ])

@@ -6,17 +6,19 @@
 <x-app-layout  :meta-title="$category->title" meta-description="welcome to the story of love kanekiTouka">
 
 <!-- Posts Section -->
-      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+<div class="flex">
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-      @foreach ($posts as $post)
+        @foreach ($posts as $post)
 
-      <x-post-item :post="$post"></x-post-item>
+        <x-post-items :post="$post"></x-post-items>
 
-      @endforeach
-      {{ $posts->onEachSide(1)->links() }}
+        @endforeach
+        {{ $posts->onEachSide(1)->links() }}
 
-    </section>
+      </section>
 
-    <x-sidebar></x-sidebar>
+      <x-sidebar></x-sidebar>
+</div>
 
 </x-app-layout>

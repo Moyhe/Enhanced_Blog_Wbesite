@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,3 +28,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/', [PostController::class, 'home'])->name('home');
+Route::get('/search', [PostController::class, 'search'])->name('search');
+Route::get('/about-us', [AboutController::class, 'about'])->name('about-us');
+Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('by-category');
+Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
