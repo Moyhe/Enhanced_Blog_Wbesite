@@ -24,4 +24,3 @@ php artisan storage:link
 
 echo "done deploying"
 
-
