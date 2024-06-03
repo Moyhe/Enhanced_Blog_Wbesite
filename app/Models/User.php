@@ -51,9 +51,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     public function canAccessFilament(): bool
     {
-        $adminRole = Role::create(['name' => 'admin']);
-        $this->assignRole($adminRole);
-
         return $this->hasRole('admin');
     }
 }
