@@ -17,9 +17,15 @@ class PostOverview extends Widget
     {
         return [
 
+<<<<<<< HEAD
             'viewCount' => PostView::query()->where('post_id', '=', $this->record?->id)->count(),
             'upVotes' => UpVoteDownVotes::query()->where('post_id', '=', $this->record?->id)->where('is_upVote', '=', true)->count(),
             'downVotes' => UpVoteDownVotes::query()->where('post_id', '=', $this->record?->id)->where('is_upVote', '=', false)->count()
+=======
+           'viewCount' => PostView::query()->where('post_id', '=', $this->record->id)->count(),
+           'upVotes' => UpVoteDownVotes::query()->where('post_id', '=', $this->record->id)->where('is_upVote', '=', true)->count(),
+           'downVotes' => UpVoteDownVotes::query()->where('post_id', '=', $this->record->id)->where('is_upVote', '=', false)->count()
+>>>>>>> origin/main
         ];
     }
 
