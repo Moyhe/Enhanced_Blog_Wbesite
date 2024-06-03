@@ -14,15 +14,15 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-       'title',
-       'slug',
-       'thumbnail',
-       'body',
-       'active',
-       'published_at',
-       'user_id',
-       'meta_data',
-       'meta_description'
+        'title',
+        'slug',
+        'thumbnail',
+        'body',
+        'active',
+        'published_at',
+        'user_id',
+        'meta_data',
+        'meta_description'
     ];
 
 
@@ -64,20 +64,20 @@ class Post extends Model
 
     public function getThumbnail()
     {
-         if(str_starts_with($this->thumbnail, 'http'))
-         {
+        if (str_starts_with($this->thumbnail, 'https')) {
             return $this->thumbnail;
-         }
+        }
 
-         return '/storage/' . $this->thumbnail;
+        return '/storage/' . $this->thumbnail;
     }
 
-    public function humanReadTime(): Attribute {
+    public function humanReadTime(): Attribute
+    {
         return new Attribute(
-            get: function($value, $attributes) {
-                  $words = Str::wordCount(strip_tags($attributes['body']));
-                  $minutes = ceil($words/ 200);
-                  return $minutes . ' ' .str('min')->plural($minutes). ', '. $words . ' ' . str('word')->plural($minutes);
+            get: function ($value, $attributes) {
+                $words = Str::wordCount(strip_tags($attributes['body']));
+                $minutes = ceil($words / 200);
+                return $minutes . ' ' . str('min')->plural($minutes) . ', ' . $words . ' ' . str('word')->plural($minutes);
             }
         );
     }

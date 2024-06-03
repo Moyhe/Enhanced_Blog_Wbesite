@@ -17,12 +17,12 @@ class AppLayout extends Component
     {
         $this->categories = Category::query()
 
-                    ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
-                    ->join('category_post', 'categories.id', '=', 'category_post.category_id')
-                    ->groupBy(['categories.title', 'categories.slug'])
-                    ->orderByDesc('total')
-                    ->limit(5)
-                    ->get();
+            ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
+            ->join('category_post', 'categories.id', '=', 'category_post.category_id')
+            ->groupBy(['categories.title', 'categories.slug'])
+            ->orderByDesc('total')
+            ->limit(5)
+            ->get();
     }
 
 

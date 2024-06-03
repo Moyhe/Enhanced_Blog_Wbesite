@@ -9,13 +9,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AboutController extends Controller
 {
-    public function about(): View
+    public function __invoke(): View
     {
         $widget = TextWidget::query()
-        ->where('key', '=', 'About-page')
-        ->where('active', '=', true)->first();
-        if(!$widget)
-        {
+            ->where('key', '=', 'About-page')
+            ->where('active', '=', true)->first();
+        if (!$widget) {
             throw new NotFoundHttpException();
         }
 
