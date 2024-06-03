@@ -25,19 +25,12 @@ class Sidebar extends Component
     {
         $categories = Category::query()
 
-<<<<<<< HEAD
             ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
             ->join('category_post', 'categories.id', '=', 'category_post.category_id')
             ->groupBy('categories.id')
             ->orderByDesc('total')
             ->get();
-=======
-        ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
-        ->join('category_post', 'categories.id', '=', 'category_post.category_id')
-        ->groupBy('categories.id')
-        ->orderByDesc('total')
-        ->get();
->>>>>>> origin/main
+
 
         return view('components.sidebar', compact('categories'));
     }
