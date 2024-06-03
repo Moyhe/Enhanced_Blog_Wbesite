@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('up_vote_down_votes', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_upVote');
+            $table->boolean('is_upvote');
             $table->foreignId('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -40,7 +40,7 @@ class PostController extends Controller
             ->where('active', '=', true)
             ->whereDate('published_at', '<', Carbon::now())
             ->orderByDesc('upvote_count')
-            ->groupBy('posts.id',)
+            ->groupBy('posts.id')
             ->limit(3)
             ->get();
 
@@ -51,7 +51,7 @@ class PostController extends Controller
         if ($user) {
 
             $leftJoin = "(SELECT category_post.post_id, category_post.category_id FROM up_vote_down_votes AS votes JOIN category_post ON votes.post_id
-               = category_post.post_id WHERE votes.is_upVote = TRUE  AND votes.user_id = ?) as t";
+               = category_post.post_id WHERE votes.is_upvote = TRUE  AND votes.user_id = ?) as t";
             $recommendedPosts = Post::query()
 
                 ->leftJoin('category_post', 'posts.id', '=', 'category_post.post_id')
