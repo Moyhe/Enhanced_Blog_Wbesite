@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $adminRole = Role::create(['name' => 'admin']);
         $adminUser->assignRole($adminRole);
 
-        Post::factory()->count(2)->create();
+        Post::factory()->count(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
