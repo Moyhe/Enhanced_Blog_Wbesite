@@ -10,7 +10,7 @@ class UpVoteDownVotes extends Model
     use HasFactory;
 
     protected $fillable = [
-        'is_upVote',
+        'is_upvote',
         'post_id',
         'user_id',
 

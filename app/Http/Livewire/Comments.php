@@ -15,11 +15,10 @@ class Comments extends Component
 
     public function mount(Post $post)
     {
-       $this->post = $post;
-
+        $this->post = $post;
     }
 
-       protected $listeners = [
+    protected $listeners = [
 
         'commentCreated' => '$refresh',
         'commentDeleted' => '$refresh',
@@ -28,7 +27,7 @@ class Comments extends Component
     public function render()
     {
 
-         $comments = $this->selectComments();
+        $comments = $this->selectComments();
         return view('livewire.comments', compact('comments'));
     }
 
@@ -51,13 +50,11 @@ class Comments extends Component
 
     public function selectComments()
     {
-       return Comment::query()
-        ->with(['post', 'user', 'comments'])
-        ->whereNull('parent_id')
-        ->where('post_id', '=', $this->post->id)
-        ->orderByDesc('created_at')
-        ->get();
+        return Comment::query()
+            ->with(['post', 'user', 'comments'])
+            ->whereNull('parent_id')
+            ->where('post_id', '=', $this->post->id)
+            ->orderByDesc('created_at')
+            ->get();
     }
-
-
 }
