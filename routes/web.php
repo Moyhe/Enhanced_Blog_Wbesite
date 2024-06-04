@@ -17,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', [PostController::class, 'home'])->name('home');
+Route::get('/search', [PostController::class, 'search'])->name('search');
+Route::get('/about-us', AboutController::class)->name('about-us');
+Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('by-category');
+Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,10 +34,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [PostController::class, 'home'])->name('home');
-Route::get('/search', [PostController::class, 'search'])->name('search');
-Route::get('/about-us', AboutController::class)->name('about-us');
-Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('by-category');
-Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
 
 require __DIR__ . '/auth.php';
