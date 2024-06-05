@@ -4,7 +4,7 @@ laravel 10 blog website with docker, tailwindcss, alpinejs and MySQL
 
 ## Demo
 
-    Coming soon...
+enhanced-blog-wbesite.onrender.com
 
 ##
 
