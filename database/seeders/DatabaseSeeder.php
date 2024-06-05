@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\TextWidget;
 use App\Models\User;
 use Database\Factories\CategoryFactory;
 use Database\Factories\PostFactory;
@@ -36,6 +37,9 @@ class DatabaseSeeder extends Seeder
             ->count(3)
             ->hasAttached(Post::factory()->count(5))
             ->create();
+
+
+        TextWidget::factory()->count(1)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

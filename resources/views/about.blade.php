@@ -6,7 +6,7 @@
         <article class="flex flex-col shadow my-4">
             <!-- Article Image -->
             <a href="#" class="hover:opacity-75">
-                <img src="/storage/{{ $widget->image }}">
+                <img src="{{ $widget->getThumbnail() }}">
             </a>
             <div class="bg-white flex flex-col justify-start p-6">
                 <h1  class="text-3xl font-bold hover:text-gray-700 pb-4">
