@@ -21,7 +21,7 @@ class CommentItem extends Component
 
     public function mount(Comment $comment)
     {
-     $this->comment = $comment;
+        $this->comment = $comment;
     }
 
     public function render()
@@ -36,12 +36,11 @@ class CommentItem extends Component
         $user = auth()->user();
         if (!$user) {
 
-           return redirect('/login');
+            return redirect('/login');
         }
 
-        if ($this->comment->user_id != $user->id)
-        {
-          return response('you are not allowed to this action', 403);
+        if ($this->comment->user_id != $user->id) {
+            return response('you are not allowed to this action', 403);
         }
 
         $id = $this->comment->id;
@@ -51,13 +50,13 @@ class CommentItem extends Component
 
     public function editComment()
     {
-      $this->editing = true;
+        $this->editing = true;
     }
 
     public function cancelEditing()
     {
-       $this->editing = false;
-       $this->replying = false;
+        $this->editing = false;
+        $this->replying = false;
     }
 
     public function commentUpdated()
@@ -67,11 +66,11 @@ class CommentItem extends Component
 
     public function startReply()
     {
-      $this->replying = true;
+        $this->replying = true;
     }
 
     public function commentCreated()
     {
-       $this->replying = false;
+        $this->replying = false;
     }
 }
