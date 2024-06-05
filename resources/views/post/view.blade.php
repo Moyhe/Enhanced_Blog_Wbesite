@@ -26,8 +26,7 @@
                     <div>
                         {!! $post->body !!}
                     </div>
-                    {{--
-                    <livewire:up-vote-down-vote :post="$post" /> --}}
+                    <livewire:up-vote-down-vote :post="$post" />
                 </div>
             </article>
 
@@ -57,8 +56,7 @@
                 </div>
             </div>
 
-            {{--
-            <livewire:comments :post="$post" /> --}}
+            <livewire:comments :post="$post" />
 
         </section>
         <x-sidebar></x-sidebar>
