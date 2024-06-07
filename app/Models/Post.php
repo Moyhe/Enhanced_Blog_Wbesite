@@ -64,16 +64,6 @@ class Post extends Model
         return $this->published_at->format('F jS Y');
     }
 
-    /**
-     * Get all of the comments for the Post
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
-
     public function getThumbnail()
     {
 
