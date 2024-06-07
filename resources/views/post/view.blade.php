@@ -56,7 +56,9 @@
                 </div>
             </div>
 
+            @if ($post->comments)
             <livewire:comments :post="$post" />
+            @endif
 
         </section>
         <x-sidebar></x-sidebar>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 class Post extends Model
@@ -61,6 +62,16 @@ class Post extends Model
     public function getFormatedDate()
     {
         return $this->published_at->format('F jS Y');
+    }
+
+    /**
+     * Get all of the comments for the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function getThumbnail()
