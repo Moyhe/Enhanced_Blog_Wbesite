@@ -16,7 +16,7 @@ https://enhanced-blog-wbesite.onrender.com
 git clone https://github.com/thecodeholic/laravel-10-blog.git
 ```
 
-#### 2. Run `composer install`
+#### 2. Run `composer install && npm install`
 
 Navigate into project folder using terminal and run
 
