@@ -54,9 +54,9 @@ class UpVoteDownVote extends Component
         if (!$user) {
             return $this->redirect('login');
         }
-        if (!$user->hasVerifiedEmail()) {
-            return $this->redirect(route('verification.notice'));
-        }
+        // if (!$user->hasVerifiedEmail()) {
+        //     return $this->redirect(route('verification.notice'));
+        // }
 
         $model = UpVoteDownVotes::query()
             ->where('post_id', '=', $this->post->id)
