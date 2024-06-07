@@ -25,7 +25,7 @@
 
         <div class="gap-3">
             <a wire:click.prevent='startReply' href="" class="text-indigo-600 mr-3">Reply</a>
-            @if (Auth::id() == $comment->user_id)
+            @if (\Illuminate\Support\Facades\Auth::id() == $comment->user_id)
             <a href="#" wire:click.prevent='editComment' class="text-blue-600 mr-3">Edit</a>
             <a href="" wire:click.prevent='deleteComment' class="text-red-600">Delete</a>
             @endif
@@ -34,7 +34,7 @@
         <livewire:comment-create :post="$comment->post" :parent-comment="$comment" />
         @endif
 
-
+        @if ($comment->comments->count())
         <div class="mb-3 mt-5">
             @foreach ($comment->comments as $childComment)
 
@@ -42,6 +42,7 @@
 
             @endforeach
         </div>
+        @endif
 
     </div>
 </div>

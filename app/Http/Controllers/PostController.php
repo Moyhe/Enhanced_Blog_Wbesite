@@ -134,7 +134,6 @@ class PostController extends Controller
         $user = $request->user();
 
         PostView::create([
-
             'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
             'post_id' => $post->id,
@@ -157,9 +156,6 @@ class PostController extends Controller
 
         return view('post.posts', compact('posts', 'category'));
     }
-
-
-
 
     public function search(Request $request)
     {
