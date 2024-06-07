@@ -56,7 +56,8 @@
                 </div>
             </div>
 
-            <livewire:comments :post="$post" />
+            {{--
+            <livewire:comments :post="$post" /> --}}
 
         </section>
         <x-sidebar></x-sidebar>
